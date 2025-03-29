@@ -1,6 +1,8 @@
 ---
 import Button from "src/components/Button.astro";
 import Layout from "src/layouts/Layout.astro";
+
+const { time } = Astro.params;
 ---
 
 <Layout>
@@ -9,15 +11,7 @@ import Layout from "src/layouts/Layout.astro";
       <Button text={"CURRENT BALANCE"} hoverEffect={false} />
 
       <div class="flex flex-col items-center">
-        <input
-          id="amountInput"
-          type="text"
-          class="border-b-2 text-5xl font-bold text-black text-center"
-        />
-      </div>
-
-      <div class="my-6 flex flex-col items-center">
-        <Button text={"WITHDRAW AMOUNT"} href={"/withdraw"} />
+        {time}
       </div>
     </div>
 
@@ -29,7 +23,7 @@ import Layout from "src/layouts/Layout.astro";
   <!-- Client-side script for localStorage -->
   <script>
     document.addEventListener("astro:page-load", () => {
-      const input = document.getElementById("amountInput");
+      const input = document.getElementById("amountInput")!;
 
       // Load saved value
       input.value = localStorage.getItem("balance") || "";
