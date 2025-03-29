@@ -1,0 +1,36 @@
+---
+import Button from "src/components/Button.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="flex flex-col text-gray-500 m-4">
+    <div class="flex flex-col gap-10">
+      <Button text={"GAME RULES"} hoverEffect={false} />
+      <ol class="list-decimal list-inside space-y-2 text-lg">
+        <li>
+          A TASK WILL BE ASSIGNED TO WHICH IF COMPLETED, THE PLAYERS WILL BE
+          REWARDED WITH <b>MONEY</b>.
+        </li>
+        <li>
+          IN MULTIPLAYER MODE BOTH PLAYERS MAY COMPLETE THE TASK TOGETHER OR IN
+          TURNS. COMPLETION OF TASK BY A NON-PLAYER IS CONSIDERED <b>CHEATING</b
+          >.
+        </li>
+        <li><b>MONEY WILL BE DOUBLED</b> AFTER COMPLETION OF EACH TASK.</li>
+        <li>CLICK <b>END TASK</b> IF PLAYER FAILS TO COMPLETE A TASK.</li>
+        <li>
+          THERE ARE <b>NO CONSEQUENCES</b> TO THIS GAME AND PLAYERS MAY STOP WHENEVER
+          THEY WANT.
+        </li>
+        <li>
+          CASH REWARDS WILL BE <b>CONFISCATED</b> IF CHEATING IS INVOLVED.
+        </li>
+      </ol>
+    </div>
+
+    <div class="flex justify-between w-auto mt-6">
+      <Button text="CLICK TO CONTINUE ➡" href={"/start"} />
+    </div>
+  </div>
+</Layout>

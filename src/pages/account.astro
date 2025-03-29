@@ -1,0 +1,43 @@
+---
+import Button from "src/components/Button.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="flex flex-col text-gray-500 m-4">
+    <div class="flex flex-col gap-20">
+      <Button text={"CURRENT BALANCE"} hoverEffect={false} />
+
+      <div class="flex flex-col items-center">
+        <input
+          id="amountInput"
+          type="text"
+          class="border-b-2 text-5xl font-bold text-black text-center"
+        />
+      </div>
+
+      <div class="my-6 flex flex-col items-center">
+        <Button text={"WITHDRAW AMOUNT"} />
+      </div>
+    </div>
+
+    <div class="flex justify-between w-auto mt-6">
+      <Button text="⬅︎ BACK" href={"/start"} />
+    </div>
+  </div>
+
+  <!-- Client-side script for localStorage -->
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const input = document.getElementById("amountInput");
+
+      // Load saved value
+      input.value = localStorage.getItem("balance") || "";
+
+      // Save value on input change
+      input.addEventListener("input", function () {
+        localStorage.setItem("balance", input.value);
+      });
+    });
+  </script>
+</Layout>

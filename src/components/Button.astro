@@ -1,0 +1,11 @@
+---
+const { text, href, hoverEffect = true } = Astro.props;
+---
+
+<a
+  class={`font-medium py-2.5 w-auto px-6 h-12 font-[Avenir_Next_Condensed] text-center text-2xl rounded outline-2 text-gray-500 outline-gray-500 outline-offset-8 transition-all duration-500 redirect 
+    ${hoverEffect ? "hover:text-3xl hover:outline-offset-12 hover:outline-black hover:text-black" : "text-black outline-black outline-offset-12"}`}
+  href={href}
+>
+  {text}
+</a>

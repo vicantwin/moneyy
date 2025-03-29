@@ -1,0 +1,17 @@
+---
+import Button from "src/components/Button.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="items-center flex justify-center w-full h-full relative">
+    <div class="flex gap-20">
+      <Button text={"GAME RULES"} href={"/rules"} />
+      <Button text={"ACCOUNT STATUS"} transition:name="start" href="/account" />
+      <Button text={"PLAYERS"} />
+    </div>
+    <div class="absolute bottom-20 right-20">
+      <Button text={"BEGIN TASK"} />
+    </div>
+  </div>
+</Layout>
