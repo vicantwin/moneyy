@@ -4,13 +4,13 @@ import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="items-center flex justify-center w-full h-full relative">
+  <div class="relative flex h-full w-full items-center justify-center">
     <div class="flex gap-20">
       <Button text={"GAME RULES"} href={"/rules"} />
       <Button text={"ACCOUNT STATUS"} transition:name="start" href="/account" />
       <Button text={"PLAYERS"} />
     </div>
-    <div class="absolute bottom-20 right-20">
+    <div class="absolute right-20 bottom-20">
       <Button text={"BEGIN TASK"} href="/task" />
     </div>
   </div>

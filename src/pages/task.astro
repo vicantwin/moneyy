@@ -1,24 +1,65 @@
 ---
+import Button from "src/components/Button.astro";
 import Layout from "src/layouts/Layout.astro";
 ---
 
+<script>
+  function adjustWidth() {
+    const input = document.getElementById("input");
+    const ghost = document.getElementById("ghost");
+
+    if (!input || !ghost) return;
+
+    ghost.textContent = input.value || " ";
+    input.style.width = `${ghost.offsetWidth * 2}px`;
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    const input = document.getElementById("input");
+    if (input) {
+      input.value = "0/1000";
+      input.addEventListener("input", adjustWidth);
+      adjustWidth(); // Initialize on load1000/1000
+    }
+  });
+</script>
+
 <Layout>
   <div
-    class="flex flex-col gap-20 h-screen items-center justify-center content-center"
+    class="relative flex h-screen flex-col content-center items-center justify-center gap-10"
   >
     <input
       type="text"
-      class="text-6xl text-center m-8 text-black"
+      class="m-8 text-center text-6xl text-black"
       value="TASK 1"
     />
     <div
-      class="rounded outline-2 text-black text-center outline-black outline-offset-12"
+      class="flex flex-col rounded text-center text-black outline-2 outline-offset-12 outline-black"
     >
       <input
         type="text"
-        class="text-4xl text-center m-8"
+        class="m-8 text-center text-4xl"
         value="COMPLETE A 1000 STEPS"
       />
+      <div>
+        <input type="checkbox" class="mr-2 size-6" />
+        <div class="relative inline-block">
+          <span
+            id="ghost"
+            class="invisible absolute px-2 py-1 text-base whitespace-pre"
+            aria-valuemax></span>
+
+          <input
+            id="input"
+            type="text"
+            class="mb-8 px-2 py-1 text-3xl text-black focus:outline-none"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute right-20 bottom-20">
+      <Button text={"FINISH TASK - 2x BALANCE"} href="/account" />
     </div>
   </div>
 </Layout>

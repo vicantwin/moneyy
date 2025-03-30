@@ -4,7 +4,7 @@ import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="flex flex-col text-gray-500 m-4">
+  <div class="m-4 flex flex-col text-gray-500">
     <div class="flex flex-col gap-20">
       <Button text={"CURRENT BALANCE"} hoverEffect={false} />
 
@@ -12,16 +12,16 @@ import Layout from "src/layouts/Layout.astro";
         <input
           id="amountInput"
           type="text"
-          class="border-b-2 text-5xl font-bold text-black text-center"
+          class="border-b-2 text-center text-5xl font-bold text-black"
         />
       </div>
 
       <div class="my-6 flex flex-col items-center">
-        <Button text={"WITHDRAW AMOUNT"} href={"/withdraw"} />
+        <Button text={"WITHDRAW AMOUNT"} href={"/loading?ms=2000&redirectTo=/withdraw"} />
       </div>
     </div>
 
-    <div class="flex justify-between w-auto mt-6">
+    <div class="mt-6 flex w-auto justify-between">
       <Button text="⬅︎ BACK" href={"/start"} />
     </div>
   </div>
